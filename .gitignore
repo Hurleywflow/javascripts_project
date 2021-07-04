@@ -1,0 +1,5 @@
+node_modules
+.eslintrc
+jsconfig.json
+.pytest_cache
+API_client_test

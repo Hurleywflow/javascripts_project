@@ -1,0 +1,10 @@
+GET https://api.github.com/users/defunkt
+
+
+###
+POST https://api.github.com/users/defunkt/3 
+Content-Type: application/json
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
