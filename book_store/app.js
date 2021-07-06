@@ -1,6 +1,5 @@
-
 const list = document.querySelector('#book-list ul');
-list.addEventListener('click', e => {
+list.addEventListener('click', (e) => {
 	if (e.target.className === 'delete') {
 		const li = e.target.parentElement;
 		list.removeChild(li);
@@ -8,11 +7,10 @@ list.addEventListener('click', e => {
 });
 
 // add the book list
-
 const addForm = document.querySelector('#add-book');
-addForm.addEventListener('submit', e => {
+addForm.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const value = addForm.querySelector('input[type=text]').value;
+	const { value } = addForm.querySelector('input[type=text]');
 	// createElement
 	const li = document.createElement('li');
 	const bookName = document.createElement('span');
@@ -31,10 +29,8 @@ addForm.addEventListener('submit', e => {
 });
 
 // hide the book list
-
-const list = document.querySelector('#book-list ul');
 const hideBox = document.querySelector('#hide');
-hideBox.addEventListener('change', e => {
+hideBox.addEventListener('change', () => {
 	if (hideBox.checked) {
 		list.style.display = 'none';
 	} else {
@@ -42,14 +38,14 @@ hideBox.addEventListener('change', e => {
 	}
 });
 
-//filter books in the input search
-
-const list = document.querySelector('#book-list ul');
-const searchBar = document.forms('search-books').querySelector('input');
-searchBar.addEventListener(keyup, e => {
+// filter books in the input search
+const searchBar = document
+	.getElementById('search-books')
+	.querySelector('input');
+searchBar.addEventListener('keyup', (e) => {
 	const termInput = e.target.value.toLowerCase();
 	const books = list.getElementsByTagName('li');
-	Array.from(books).forEach(book => {
+	Array.from(books).forEach((book) => {
 		const title = book.firstElementChild.textContent;
 		if (title.toLowerCase().indexOf(termInput) !== -1) {
 			// -1 that means the book title when we search not in the book list.
@@ -60,16 +56,15 @@ searchBar.addEventListener(keyup, e => {
 	});
 });
 
-//tabbed content
-
+// tabbed content
 const tabs = document.querySelector('.tabs');
 const panels = document.querySelectorAll('.panel');
-tabs.addEventListener(click, e => {
+tabs.addEventListener('click', (e) => {
 	if (e.target.tagName == 'LI') {
 		const targetPanel = document.querySelector(e.target.dataset.target);
-		//dataset.target because in html have data-target
-		panels.forEach(panel => {
-			if ((panel = targetPanel)) {
+		// dataset.target because in html have data-target
+		panels.forEach((panel) => {
+			if (panel === targetPanel) {
 				panel.classList.add('active');
 			} else {
 				panel.classList.remove('active');

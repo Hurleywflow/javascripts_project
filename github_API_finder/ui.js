@@ -1,7 +1,7 @@
 class UI {
 	constructor() {
-    this.profile = document.getElementById('profile');
-  }
+		this.profile = document.getElementById('profile');
+	}
 
 	showProfile(user) {
 		this.profile.innerHTML = `
